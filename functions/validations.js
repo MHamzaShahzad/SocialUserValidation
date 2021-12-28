@@ -9,8 +9,10 @@ exports.handler = async event => {
             fullName,
             identityToken
         } = body;
-        console.log(email + ":" + fullName)
         const clientId = process.env.CLIENT_ID;
+        
+        console.log(`${email} : ${fullName} : ${clientId}`);
+
         // verify token (will throw error if failure)
         const { sub: userAppleId } = await
             appleSignin.verifyIdToken(identityToken, {
@@ -25,6 +27,14 @@ exports.handler = async event => {
                 body: JSON.stringify({
                     ack: 'success',
                     message: 'identityToken verefied'
+                })
+            }
+        } else {
+            return {
+                statusCode: 200,
+                body: JSON.stringify({
+                    ack: 'error',
+                    message: 'failed to verify identityToken'
                 })
             }
         }
