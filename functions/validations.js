@@ -1,17 +1,17 @@
 const appleSignin = require('apple-signin-auth');
 
 exports.handler = async event => {
-    /*try {
-        const { body } = req;
+    try {
+        const body = JSON.parse(event.body);
         const {
             email,
             fullName,
             identityToken
         } = body;
-
+        console.log(email + ":" + fullName)
         //const clientId = <your_app_id>;
         // verify token (will throw error if failure)
-        const { sub: userAppleId } = await
+        /*const { sub: userAppleId } = await
             appleSignin.verifyIdToken(identityToken, {
                 audience: clientId,
                 ignoreExpiration: true, // ignore token expiry (never expires)
@@ -19,19 +19,31 @@ exports.handler = async event => {
 
         if (appleUserId === req.body.appleUserId) {
             //details match, continue with sign in process
-            res.json({
-                ack: 'error',
-                message: 'failed to verify identityToken'
-            });
+            return {
+                statusCode: 200,
+                body: JSON.stringify({
+                    ack: 'success',
+                    message: 'identityToken verefied'
+                })
+            }
+        }*/
+        return {
+            statusCode: 200,
+            body: JSON.stringify({
+                ack: 'success',
+                message: 'identityToken verefied'
+            })
         }
     } catch (e) {
-        res.json({
-            ack: 'error',
-            message: 'failed to verify identityToken'
-        });
-    }*/
-    return {
-        statusCode: 200,
-        body: "Hello World"
+        console.log(e);
+        return {
+            statusCode: 200,
+            body: JSON.stringify({
+                ack: 'error',
+                message: 'failed to verify identityToken'
+            })
+        }
+
     }
+
 }
