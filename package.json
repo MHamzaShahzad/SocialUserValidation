@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "apple-signin-auth": "^1.5.1",
+    "dotenv": "^10.0.0",
     "encoding": "^0.1.13"
   },
   "devDependencies": {
