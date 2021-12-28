@@ -1,7 +1,7 @@
 const appleSignin = require('apple-signin-auth');
 
 exports.handler = async event => {
-    try {
+    /*try {
         const { body } = req;
         const {
             email,
@@ -29,7 +29,7 @@ exports.handler = async event => {
             ack: 'error',
             message: 'failed to verify identityToken'
         });
-    }
+    }*/
     return {
         statusCode: 200,
         body: "Hello World"
