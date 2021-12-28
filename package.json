@@ -10,9 +10,11 @@
   },
   "author": "",
   "license": "ISC",
-  
+  "dependencies": {
+    "apple-signin-auth": "^1.5.1",
+    "encoding": "^0.1.13"
+  },
   "devDependencies": {
-    "netlify-lambda": "^2.0.15",
-    "apple-signin-auth": "^1.5.1"
+    "netlify-lambda": "^2.0.15"
   }
 }
